@@ -8,7 +8,7 @@ variable "zone" {
 	type    = string
 }
 variable "project_id" {
-	default = "qwiklabs-gcp-00-e43624e04174"
+	default = "qwiklabs-gcp-04-d76423c1f69e"
 	type 	   = string
 }
 

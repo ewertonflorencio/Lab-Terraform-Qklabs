@@ -1,7 +1,10 @@
+
+
 resource "google_compute_instance" "instance1" {
   name         = "tf-instance-1"
-  machine_type = "n1-standard-1"
+  machine_type = "n1-standard-2"
   zone         = var.zone
+  allow_stopping_for_update = true
 
   boot_disk {
     initialize_params {
@@ -10,14 +13,16 @@ resource "google_compute_instance" "instance1" {
   }
 
   network_interface {
-    network = "default"
+ network = "terraform-vpc"
+    subnetwork = "subnet-01"
   }
 }
 
 resource "google_compute_instance" "instance2" {
   name         = "tf-instance-2"
-  machine_type = "n1-standard-1"
+  machine_type = "n1-standard-2"
   zone         = var.zone
+  allow_stopping_for_update = true
 
   boot_disk {
     initialize_params {
@@ -26,6 +31,7 @@ resource "google_compute_instance" "instance2" {
   }
 
   network_interface {
-    network = "default"
+ network = "terraform-vpc"
+    subnetwork = "subnet-02"
   }
 }
